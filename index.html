@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Self-Introduction</title>
+    <title>동적 결과 페이지</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="backgroundCanvas"></canvas>
-    <div class="container">
-        <div class="card">
-            <h1>Hello, I'm [Your Name]</h1>
-            <h2>[Your Title/Profession]</h2>
-            <p>
-                Welcome to my personal page! I'm passionate about [Your Interests/Skills] and love to [Your Hobbies].
-                This is a place where I share my work, thoughts, and connect with others.
-            </p>
-            <div class="social-links">
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">Portfolio</a>
-            </div>
-        </div>
-    </div>
+    <h1>안녕하세요!</h1>
+    <p>이름을 입력하고 버튼을 클릭하세요.</p>
+    <input type="text" id="nameInput" placeholder="여기에 이름을 입력하세요">
+    <button id="submitBtn">확인</button>
+    <div id="result"></div>
+
+    <p>MBTI를 입력하고 버튼을 클릭하세요.</p>
+    <input type="text" id="mbtiInput" placeholder="여기에 MBTI를 입력하세요">
+    <button id="mbtiBtn">확인</button>
+    <div id="mbtiResult"></div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,72 +1,61 @@
-const canvas = document.getElementById('backgroundCanvas');
-const ctx = canvas.getContext('2d');
+document.addEventListener('DOMContentLoaded', () => {
+    const nameInput = document.getElementById('nameInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultDiv = document.getElementById('result');
+    const body = document.body;
+    const greetingH1 = document.querySelector('h1'); // Get the h1 element
 
-let particles = [];
-const numParticles = 100;
+    // Add mousemove event listener to the body
+    body.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
 
-function setCanvasSize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+        // Create a radial gradient that follows the mouse
+        body.style.background = `radial-gradient(circle at ${x}px ${y}px, #333 0%, #121212 25%)`;
+    });
 
-// Particle class
-class Particle {
-    constructor() {
-        this.reset();
-    }
-
-    reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1; // 1 to 3
-        this.speedX = (Math.random() - 0.5) * 0.5; // -0.25 to 0.25
-        this.speedY = (Math.random() - 0.5) * 0.5; // -0.25 to 0.25
-        this.opacity = Math.random() * 0.5 + 0.1; // 0.1 to 0.6
-    }
-
-    draw() {
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // Reset particles if they go off screen
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-            this.reset();
+    submitBtn.addEventListener('click', () => {
+        const name = nameInput.value;
+        if (name) {
+            resultDiv.textContent = `안녕하세요, ${name}님! 만나서 반갑습니다.`;
+        } else {
+            resultDiv.textContent = '이름을 입력해주세요.';
         }
-    }
-}
+    });
 
-// Initialize particles
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < numParticles; i++) {
-        particles.push(new Particle());
-    }
-}
+    nameInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            submitBtn.click();
+        }
+    });
 
-// Animation loop
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-    for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-    }
-    requestAnimationFrame(animate);
-}
+    // New animation for the h1 element
+    let colorToggle = true;
+    setInterval(() => {
+        if (colorToggle) {
+            greetingH1.style.color = '#ADD8E6'; // Light Blue
+        } else {
+            greetingH1.style.color = '#fff'; // White
+        }
+        colorToggle = !colorToggle;
+    }, 1500); // Toggle color every 1.5 seconds
 
-// Event Listeners
-window.addEventListener('resize', () => {
-    setCanvasSize();
-    initParticles(); // Reinitialize particles on resize for better distribution
+    const mbtiInput = document.getElementById('mbtiInput');
+    const mbtiBtn = document.getElementById('mbtiBtn');
+    const mbtiResult = document.getElementById('mbtiResult');
+
+    mbtiBtn.addEventListener('click', () => {
+        const mbti = mbtiInput.value;
+        if (mbti) {
+            mbtiResult.textContent = '좋은 MBTI네요';
+        } else {
+            mbtiResult.textContent = 'MBTI를 입력해주세요.';
+        }
+    });
+
+    mbtiInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            mbtiBtn.click();
+        }
+    });
 });
-
-// Initial setup
-setCanvasSize();
-initParticles();
-animate();
