@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Self-Introduction</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <canvas id="backgroundCanvas"></canvas>
-    <div class="container">
-        <div class="card">
-            <h1>Hello, I'm [Your Name]</h1>
-            <h2>[Your Title/Profession]</h2>
-            <p>
-                Welcome to my personal page! I'm passionate about [Your Interests/Skills] and love to [Your Hobbies].
-                This is a place where I share my work, thoughts, and connect with others.
-            </p>
-            <div class="social-links">
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">Portfolio</a>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+# 안녕하세요, 최현준입니다!
+
+## [Your Title/Profession]
+
+제 개인 페이지에 오신 것을 환영합니다! 저는 [Your Interests/Skills]에 열정적이며 [Your Hobbies]하는 것을 좋아합니다.
+이곳은 저의 작업물과 생각들을 공유하고 다른 사람들과 소통하는 공간입니다.
+
+### 소셜 링크
+
+*   [LinkedIn](#)
+*   [GitHub](#)
+*   [Portfolio](#)
